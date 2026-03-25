@@ -1,0 +1,19 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .wave-a { animation: wave 2.4s ease-in-out infinite; }
+    .wave-b { animation: wave 2.4s ease-in-out infinite .3s; }
+    .dot { animation: travel 2.4s ease-in-out infinite; }
+    @keyframes wave {
+      0%, 100% { opacity: .55; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-1px); }
+    }
+    @keyframes travel {
+      0% { transform: translateX(-6px); opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { transform: translateX(6px); opacity: 0; }
+    }
+  </style>
+  <path class="wave-a" d="M18 46C24 46 24 34 30 34C36 34 36 46 42 46C48 46 48 34 54 34C60 34 60 46 66 46" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path class="wave-b" d="M18 36C24 36 24 46 30 46C36 46 36 36 42 36C48 36 48 46 54 46C60 46 60 36 66 36" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity=".75"/>
+  <circle class="dot" cx="40" cy="40" r="4.5" fill="#FFFFFF"/>
+</svg>

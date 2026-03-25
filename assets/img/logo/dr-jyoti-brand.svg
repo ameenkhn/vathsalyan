@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title desc">
+  <title id="title">Dr Jyoti Mary Jose Clinic</title>
+  <desc id="desc">Clinic wordmark with a two-tone emblem in teal and rose.</desc>
+  <defs>
+    <linearGradient id="emblemGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F98A0" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#B9859A" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="tealStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7FB9BE"/>
+      <stop offset="100%" stop-color="#4F98A0"/>
+    </linearGradient>
+    <linearGradient id="roseStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8A6BF"/>
+      <stop offset="100%" stop-color="#B9859A"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(8 15)">
+    <rect x="0" y="0" width="84" height="84" rx="28" fill="url(#emblemGlow)"/>
+    <path d="M18 55C26 55 27 37 34 37C40 37 42 61 50 61C57 61 59 29 66 29" fill="none" stroke="url(#tealStroke)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18 35C25 35 27 60 34 60C41 60 43 25 50 25C57 25 59 53 66 53" fill="none" stroke="url(#roseStroke)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="34" cy="37" r="3.5" fill="#4F98A0"/>
+    <circle cx="50" cy="61" r="3.5" fill="#B9859A"/>
+  </g>
+
+  <g transform="translate(112 36)">
+    <text x="0" y="26" fill="#241C25" font-family="Outfit, Figtree, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.02em">
+      Dr. Jyoti Mary Jose
+    </text>
+    <text x="2" y="58" fill="#756A74" font-family="Figtree, Outfit, Arial, sans-serif" font-size="16" font-weight="600" letter-spacing="0.18em">
+      WOMEN'S HEALTH CLINIC
+    </text>
+    <path d="M2 73H270" stroke="#D7E7E8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M2 73H126" stroke="#B9859A" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

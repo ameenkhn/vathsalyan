@@ -1,0 +1,25 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .leaf-left { animation: leafLeft 2.8s ease-in-out infinite; transform-origin: 34px 35px; }
+    .leaf-right { animation: leafRight 2.8s ease-in-out infinite; transform-origin: 46px 35px; }
+    .stem { animation: rise 2.2s ease-in-out infinite alternate; }
+    @keyframes leafLeft {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(4deg); }
+    }
+    @keyframes leafRight {
+      0%, 100% { transform: rotate(4deg); }
+      50% { transform: rotate(-4deg); }
+    }
+    @keyframes rise {
+      0% { transform: translateY(1px); }
+      100% { transform: translateY(-1px); }
+    }
+  </style>
+  <g stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path class="stem" d="M40 31V56"/>
+    <path class="leaf-left" d="M39 39C30 39 24 33 24 24C33 24 39 30 39 39Z" fill="#FFFFFF" fill-opacity=".18"/>
+    <path class="leaf-right" d="M41 39C50 39 56 33 56 24C47 24 41 30 41 39Z" fill="#FFFFFF" fill-opacity=".18"/>
+    <path d="M33 56H47"/>
+  </g>
+</svg>

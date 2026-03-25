@@ -1,0 +1,21 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sheet { animation: bob 2.8s ease-in-out infinite; transform-origin: 40px 40px; }
+    .mark { animation: pop 2s ease-in-out infinite; transform-origin: 40px 43px; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes pop {
+      0%, 100% { transform: scale(.9); opacity: .72; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+  </style>
+  <g class="sheet" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="19" width="44" height="42" rx="8"/>
+    <path d="M28 16V24"/>
+    <path d="M52 16V24"/>
+    <path d="M18 31H62"/>
+  </g>
+  <path class="mark" d="M30 43L37 50L50 37" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

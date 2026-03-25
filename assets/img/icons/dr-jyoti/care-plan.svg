@@ -1,0 +1,16 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .shield { animation: float 2.8s ease-in-out infinite; transform-origin: 40px 40px; }
+    .tick { animation: pulse 2.1s ease-in-out infinite; transform-origin: 40px 43px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .65; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <path class="shield" d="M40 21L56 27V39C56 48.5 49.8 56.8 40 60C30.2 56.8 24 48.5 24 39V27L40 21Z" stroke="#FFFFFF" stroke-width="2.8" stroke-linejoin="round"/>
+  <path class="tick" d="M33 41.5L38 46.5L48 36.5" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

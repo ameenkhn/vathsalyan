@@ -1,0 +1,25 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .building { animation: float 3s ease-in-out infinite; transform-origin: 40px 40px; }
+    .cross { animation: glow 2.2s ease-in-out infinite; transform-origin: 40px 31px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes glow {
+      0%, 100% { opacity: .7; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <g class="building" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 55V28C27 25.8 28.8 24 31 24H49C51.2 24 53 25.8 53 28V55"/>
+    <path d="M23 55H57"/>
+    <path class="cross" d="M40 27V35M36 31H44"/>
+    <path d="M34 42H34.01"/>
+    <path d="M40 42H40.01"/>
+    <path d="M46 42H46.01"/>
+    <path d="M34 48H34.01"/>
+    <path d="M40 48H40.01"/>
+    <path d="M46 48H46.01"/>
+  </g>
+</svg>

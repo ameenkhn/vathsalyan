@@ -1,0 +1,22 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sheet { animation: float 2.8s ease-in-out infinite; transform-origin: 40px 40px; }
+    .check { animation: pop 2.2s ease-in-out infinite; transform-origin: 51px 50px; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes pop {
+      0%, 100% { transform: scale(.9); opacity: .7; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+  </style>
+  <g class="sheet" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28 21H46L54 29V55C54 57.2 52.2 59 50 59H28C25.8 59 24 57.2 24 55V25C24 22.8 25.8 21 28 21Z"/>
+    <path d="M46 21V29H54"/>
+    <path d="M31 37H47"/>
+    <path d="M31 44H42"/>
+  </g>
+  <circle class="check" cx="52" cy="50" r="8" fill="#FFFFFF" fill-opacity=".18"/>
+  <path class="check" d="M48.5 50.2L51.1 52.8L55.8 47.8" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

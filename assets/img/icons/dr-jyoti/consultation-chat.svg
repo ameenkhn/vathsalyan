@@ -1,0 +1,20 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bubble { animation: bob 2.8s ease-in-out infinite; transform-origin: 40px 40px; }
+    .dot { animation: pulse 1.8s ease-in-out infinite; }
+    .d2 { animation-delay: .2s; }
+    .d3 { animation-delay: .4s; }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: .35; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <path class="bubble" d="M23 25H57C59.8 25 62 27.2 62 30V47C62 49.8 59.8 52 57 52H41L34 58V52H23C20.2 52 18 49.8 18 47V30C18 27.2 20.2 25 23 25Z" stroke="#FFFFFF" stroke-width="2.8" stroke-linejoin="round"/>
+  <circle class="dot" cx="31" cy="39" r="3" fill="#FFFFFF"/>
+  <circle class="dot d2" cx="40" cy="39" r="3" fill="#FFFFFF"/>
+  <circle class="dot d3" cx="49" cy="39" r="3" fill="#FFFFFF"/>
+</svg>

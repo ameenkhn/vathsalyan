@@ -1,0 +1,105 @@
+@use '../../utils/' as * ;
+
+/*============= FAQ CSS AREA ===============*/
+.faq-inner-section-area {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    .faq-widget-area {
+        ul {
+            display: block;
+            text-align: center;
+            li {
+                display: inline-block;
+                margin: 0 8px 0 0;
+                &:nth-last-child(1) {
+                    margin: 0;
+                }
+                button {
+                    border: none;
+                    outline: none;
+                    color: var(--ztc-text-text-2);
+                    font-family: var(--ztc-family-font1);
+                    font-size: var(--ztc-font-size-font-s20);
+                    font-style: normal;
+                    font-weight: var(--ztc-weight-semibold);
+                    line-height: 20px; 
+                    display: inline-block;
+                    border-radius: 70px;
+                    background: var(--Home-Page-1-Color-Gray-Color, #F4F4F9); 
+                    padding: 16px 24px; 
+                    &.active {
+                        background: var(--ztc-bg-bg-11);
+                        color: var(--ztc-text-text-1);
+                    }   
+                }
+            }
+        }
+
+        .tab-content {
+            .tab-pane {
+                .faq-section-area {
+                    .accordian-area {
+                        .accordion-item {
+                            border: none;
+                            padding: 0;
+                            background: var(--ztc-bg-bg-11);
+                            border-radius: 8px;
+                            button {
+                                box-shadow: none;
+                                border: none;
+                                outline: none;
+                                color: var(--ztc-text-text-2);
+                                font-family: var(--ztc-family-font1);
+                                font-size: var(--ztc-font-size-font-s20);
+                                font-style: normal;
+                                font-weight: var(--ztc-weight-semibold);
+                                line-height: 20px;
+                                text-transform: capitalize;
+                                padding: 26px 20px;
+                                transition: all .4s;
+                                border-radius: 8px;
+                                background: #F4F4F9;
+                                &.accordion-button:not(.collapsed) {
+                                    background: none;
+                                    transition: all .4s;
+                                    border: none;
+                                    border-radius: 8px 8px 0 0;
+                                    padding: 26px 20px 16px 20px;
+                                    color: var(--ztc-text-text-1);
+                                }   
+                                &::before {
+                                    height: 28px;
+                                    width: 28px;
+                                    background: var(--ztc-bg-bg-5);
+                                    transition: all .4s;
+                                    border-radius: 50%;
+                                    content: "";
+                                    position: absolute;
+                                    right: 16px;
+                                } 
+                                &::after {
+                                    z-index: 1;
+                                    filter: brightness(0) invert(1);
+                                }      
+                            }
+                            .accordion-body {
+                                padding: 0 80px 24px 24px;
+                                p {
+                                    color: var(--ztc-text-text-1);
+                                    font-family: var(--ztc-family-font1);
+                                    font-size: var(--ztc-font-size-font-s16);
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 24px; 
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+/*============= FAQ CSS AREA ===============*/

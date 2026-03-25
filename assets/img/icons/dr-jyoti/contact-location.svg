@@ -1,0 +1,19 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pin { animation: bounce 2.7s ease-in-out infinite; transform-origin: 40px 42px; }
+    .spot { animation: pulse 2s ease-in-out infinite; transform-origin: 40px 56px; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(.8); opacity: .35; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+  </style>
+  <g class="pin" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 59C47 51.8 54 45.4 54 37.4C54 29.4 47.7 23 40 23C32.3 23 26 29.4 26 37.4C26 45.4 33 51.8 40 59Z"/>
+    <circle cx="40" cy="37" r="5.5"/>
+  </g>
+  <ellipse class="spot" cx="40" cy="61" rx="9" ry="3" fill="#FFFFFF" fill-opacity=".32"/>
+</svg>

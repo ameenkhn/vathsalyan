@@ -1,0 +1,17 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .ring { animation: pulse 2.8s ease-in-out infinite; transform-origin: 40px 40px; }
+    .line { animation: draw 2.4s ease-in-out infinite alternate; }
+    @keyframes pulse {
+      0%, 100% { opacity: .65; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    @keyframes draw {
+      0% { transform: translateY(1px); }
+      100% { transform: translateY(-1px); }
+    }
+  </style>
+  <circle class="ring" cx="40" cy="40" r="29" fill="#FFFFFF" fill-opacity=".16"/>
+  <path class="line" d="M30 42H38V50H42V42H50V38H42V30H38V38H30V42Z" fill="#FFFFFF"/>
+  <path d="M27 22C24.8 22 23 23.8 23 26V54C23 56.2 24.8 58 27 58H53C55.2 58 57 56.2 57 54V26C57 23.8 55.2 22 53 22H27Z" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round"/>
+</svg>
