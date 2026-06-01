@@ -527,6 +527,19 @@ main {
   color: var(--brand-blue-deep);
 }
 
+.detail-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-media {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
 .metric-card {
   min-height: 132px;
   padding: 18px 20px;
@@ -2577,7 +2590,8 @@ main {
   }
 
   .hero-slider-content {
-    padding: 120px 0 80px;
+    position: relative;
+    padding: 56px 20px 64px;
   }
 
   .hero-slide img {
