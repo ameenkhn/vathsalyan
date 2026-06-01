@@ -2610,3 +2610,135 @@ main {
     animation: none;
   }
 }
+
+/* ============================================================
+   Site preloader — brand-logo splash shown on every page load
+   ============================================================ */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background:
+    radial-gradient(1100px 620px at 50% 38%, rgba(52, 45, 151, 0.07), transparent 70%),
+    radial-gradient(900px 520px at 50% 120%, rgba(187, 23, 29, 0.06), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, var(--brand-surface) 100%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+.site-preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-stage {
+  position: relative;
+  width: 138px;
+  height: 138px;
+  display: grid;
+  place-items: center;
+}
+
+/* Spinning gradient arc (comet ring) drawn as a masked conic gradient */
+.preloader-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    rgba(52, 45, 151, 0) 0deg,
+    rgba(52, 45, 151, 0.12) 90deg,
+    var(--brand-blue) 240deg,
+    var(--brand-red) 330deg,
+    rgba(187, 23, 29, 0) 360deg
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 4px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 5px), #000 calc(100% - 4px));
+  animation: preloaderSpin 1.05s linear infinite;
+}
+
+/* Soft halo that breathes behind the logo */
+.preloader-glow {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 45, 151, 0.18), rgba(52, 45, 151, 0) 70%);
+  animation: preloaderHalo 1.8s ease-in-out infinite;
+}
+
+.preloader-logo {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  padding: 12px;
+  box-shadow: 0 14px 30px rgba(23, 24, 77, 0.22);
+  animation: preloaderPulse 1.8s ease-in-out infinite;
+}
+
+.preloader-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.preloader-wordmark {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-blue-deep);
+  background: linear-gradient(90deg, var(--brand-blue-deep) 0%, var(--brand-red) 50%, var(--brand-blue-deep) 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: preloaderShimmer 2.4s linear infinite;
+}
+
+.preloader-tagline {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-slate);
+}
+
+@keyframes preloaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes preloaderHalo {
+  0%, 100% { transform: scale(0.92); opacity: 0.7; }
+  50% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes preloaderShimmer {
+  0% { background-position: 120% 0; }
+  100% { background-position: -120% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-ring,
+  .preloader-glow,
+  .preloader-logo,
+  .preloader-wordmark {
+    animation: none;
+  }
+}

@@ -4,6 +4,36 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
+  // Preloader: keep the brand splash visible briefly, then fade out on load.
+  const preloader = document.getElementById("sitePreloader");
+  if (preloader) {
+    const MIN_VISIBLE_MS = 900;
+    const startedAt = performance.now();
+    let dismissed = false;
+
+    const dismissPreloader = () => {
+      if (dismissed) return;
+      dismissed = true;
+      const wait = Math.max(0, MIN_VISIBLE_MS - (performance.now() - startedAt));
+      window.setTimeout(() => {
+        preloader.classList.add("is-hidden");
+        preloader.addEventListener(
+          "transitionend",
+          () => preloader.remove(),
+          { once: true }
+        );
+      }, wait);
+    };
+
+    if (document.readyState === "complete") {
+      dismissPreloader();
+    } else {
+      window.addEventListener("load", dismissPreloader);
+    }
+    // Safety net in case the load event is delayed by a slow asset.
+    window.setTimeout(dismissPreloader, 5000);
+  }
+
   const syncHeader = () => {
     if (!header) return;
     header.classList.toggle("scrolled", window.scrollY > 10);
