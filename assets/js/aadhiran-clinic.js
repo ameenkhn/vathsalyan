@@ -59,4 +59,132 @@
   document.querySelectorAll("[data-current-year]").forEach((node) => {
     node.textContent = String(new Date().getFullYear());
   });
+
+  // ---- Hero swiping background slider ----
+  const hero = document.querySelector("[data-hero-slider]");
+  const track = hero && hero.querySelector(".hero-slide-track");
+  if (hero && track && track.children.length > 1) {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const dotsWrap = hero.querySelector(".hero-slider-dots");
+    const real = Array.from(track.children);
+    const count = real.length;
+
+    // Clone last → front and first → back for a seamless infinite loop.
+    const headClone = real[count - 1].cloneNode(true);
+    const tailClone = real[0].cloneNode(true);
+    headClone.setAttribute("aria-hidden", "true");
+    tailClone.setAttribute("aria-hidden", "true");
+    track.insertBefore(headClone, real[0]);
+    track.appendChild(tailClone);
+
+    let index = 1; // first real slide (after head clone)
+    const EASE = "transform 800ms cubic-bezier(.22,.61,.36,1)";
+
+    // Per-slide headline / subline sync
+    const copyEl = hero.querySelector(".hero-copy");
+    const titleEl = copyEl && copyEl.querySelector("h1");
+    const subEl = copyEl && copyEl.querySelector("p");
+    const syncText = () => {
+      if (!copyEl || !titleEl || !subEl) return;
+      const slide = real[(index - 1 + count) % count];
+      const title = slide.getAttribute("data-title");
+      const sub = slide.getAttribute("data-sub");
+      if (!title || (titleEl.textContent === title && subEl.textContent === sub)) return;
+      copyEl.classList.add("is-swapping");
+      window.setTimeout(() => {
+        titleEl.textContent = title;
+        subEl.textContent = sub;
+        copyEl.classList.remove("is-swapping");
+      }, 260);
+    };
+
+    const place = (animate) => {
+      track.style.transition = animate ? EASE : "none";
+      track.style.transform = "translateX(" + -index * 100 + "%)";
+    };
+
+    const dots = [];
+    if (dotsWrap) {
+      for (let i = 0; i < count; i += 1) {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "hero-dot";
+        dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+        dot.addEventListener("click", () => goTo(i + 1, true));
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      }
+    }
+
+    const syncDots = () => {
+      const active = (index - 1 + count) % count;
+      dots.forEach((d, i) => d.classList.toggle("active", i === active));
+    };
+
+    const goTo = (i, fromUser) => {
+      index = i;
+      place(true);
+      syncDots();
+      syncText();
+      if (fromUser) restart();
+    };
+
+    const next = () => goTo(index + 1, false);
+    const prev = () => goTo(index - 1, false);
+
+    track.addEventListener("transitionend", () => {
+      if (index >= count + 1) {
+        index = 1;
+        place(false);
+      } else if (index <= 0) {
+        index = count;
+        place(false);
+      }
+      syncDots();
+    });
+
+    let timer = null;
+    const start = () => {
+      if (reduceMotion) return;
+      stop();
+      timer = window.setInterval(next, 2000);
+    };
+    const stop = () => {
+      if (timer) window.clearInterval(timer);
+      timer = null;
+    };
+    const restart = () => {
+      stop();
+      start();
+    };
+
+    place(false);
+    syncDots();
+    start();
+
+    hero.addEventListener("mouseenter", stop);
+    hero.addEventListener("mouseleave", start);
+
+    // Touch / pointer swipe
+    let startX = null;
+    hero.addEventListener(
+      "touchstart",
+      (e) => {
+        startX = e.touches[0].clientX;
+        stop();
+      },
+      { passive: true }
+    );
+    hero.addEventListener(
+      "touchend",
+      (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 45) (dx < 0 ? next : prev)();
+        startX = null;
+        start();
+      },
+      { passive: true }
+    );
+  }
 })();
