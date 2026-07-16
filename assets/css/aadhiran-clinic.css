@@ -105,6 +105,12 @@ main {
   display: grid;
   gap: 16px;
   margin-bottom: 32px;
+  justify-items: center;
+  text-align: center;
+}
+
+.section-head > p {
+  max-width: 68ch;
 }
 
 .section-head h1,
@@ -120,7 +126,7 @@ main {
 
 .section-head h2,
 .page-hero-copy h1 {
-  font-size: clamp(2.1rem, 5vw, 3.85rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
 }
 
 .section-head p,
@@ -206,33 +212,6 @@ main {
   box-shadow: 0 14px 34px rgba(23, 24, 77, 0.08);
 }
 
-.top-strip {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(90deg, var(--brand-blue-deep), var(--brand-blue));
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.top-strip .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 10px 0;
-  font-size: 0.9rem;
-}
-
-.top-strip-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-
-.top-strip span,
-.top-strip a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .nav-shell {
   padding: 12px 0;
 }
@@ -279,10 +258,10 @@ main {
 }
 
 .site-nav {
-  margin-left: auto;
+  margin-inline: auto;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: clamp(16px, 1.8vw, 30px);
 }
 
 .site-nav a {
@@ -700,23 +679,12 @@ main {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 16% 24%, rgba(187, 23, 29, 0.2), transparent 30%),
-    radial-gradient(circle at 88% 72%, rgba(187, 23, 29, 0.18), transparent 30%),
-    linear-gradient(135deg, var(--brand-blue-deep), var(--brand-blue));
-  color: var(--brand-white);
+    radial-gradient(circle at 16% 24%, rgba(187, 23, 29, 0.07), transparent 30%),
+    radial-gradient(circle at 88% 72%, rgba(52, 45, 151, 0.09), transparent 32%),
+    linear-gradient(180deg, var(--brand-surface) 0%, var(--brand-surface-strong) 100%);
+  color: var(--brand-ink);
 }
 
-.why-home-section::before {
-  content: "A";
-  position: absolute;
-  right: clamp(12px, 6vw, 90px);
-  bottom: -130px;
-  color: rgba(255, 255, 255, 0.045);
-  font-family: var(--font-heading);
-  font-size: clamp(18rem, 38vw, 34rem);
-  line-height: 1;
-  pointer-events: none;
-}
 
 .why-home-layout {
   position: relative;
@@ -738,7 +706,7 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  color: rgba(255, 198, 201, 0.95);
+  color: var(--brand-blue);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.28em;
@@ -749,7 +717,7 @@ main {
   content: "";
   width: 54px;
   height: 2px;
-  background: linear-gradient(90deg, var(--brand-white), var(--brand-red));
+  background: linear-gradient(90deg, var(--brand-blue), var(--brand-red));
 }
 
 .why-home-intro h2 {
@@ -763,7 +731,7 @@ main {
 
 .why-home-intro h2 em {
   display: block;
-  color: #ffb9bd;
+  color: var(--brand-red);
   font-style: italic;
   font-weight: 500;
 }
@@ -771,7 +739,7 @@ main {
 .why-home-intro p {
   max-width: 38ch;
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--brand-slate);
   font-size: 1.05rem;
   line-height: 1.8;
 }
@@ -785,7 +753,7 @@ main {
 }
 
 .why-home-list {
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-top: 1px solid var(--brand-line);
 }
 
 .profile-info-card {
@@ -799,7 +767,7 @@ main {
   gap: clamp(18px, 3vw, 26px);
   align-items: flex-start;
   padding: clamp(24px, 3.3vw, 34px) 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid var(--brand-line);
 }
 
 .why-svg {
@@ -810,9 +778,9 @@ main {
   height: 58px;
   border-radius: 50%;
   flex: 0 0 auto;
-  background: rgba(187, 23, 29, 0.2);
-  border: 1px solid rgba(255, 185, 189, 0.28);
-  color: #ffb9bd;
+  background: rgba(52, 45, 151, 0.08);
+  border: 1px solid rgba(52, 45, 151, 0.12);
+  color: var(--brand-blue);
 }
 
 .why-svg svg {
@@ -827,7 +795,7 @@ main {
 
 .why-home-card h3 {
   margin: 0 0 8px;
-  color: var(--brand-white);
+  color: var(--brand-blue-deep);
   font-size: clamp(1.08rem, 2vw, 1.34rem);
   line-height: 1.22;
 }
@@ -835,7 +803,7 @@ main {
 .why-home-card p {
   margin: 0;
   max-width: 58ch;
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--brand-slate);
   font-size: 1rem;
   line-height: 1.75;
 }
@@ -881,14 +849,99 @@ main {
   line-height: 1.65;
 }
 
+/* Stacked "Why this clinic matters" / "Why choose us" (up-and-down) */
+.why-stack {
+  display: grid;
+  gap: clamp(38px, 5vw, 60px);
+}
+
+.why-block {
+  display: grid;
+  gap: clamp(26px, 3.4vw, 44px);
+}
+
+.why-block-head {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.why-block-head h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+  line-height: 1.14;
+  color: var(--brand-ink);
+}
+
+.why-block-head p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--brand-slate);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.why-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(14px, 1.8vw, 26px);
+}
+
+.why-feature {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+  padding: clamp(22px, 2.4vw, 30px) 20px;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  transition: transform 240ms ease, background 240ms ease, box-shadow 240ms ease;
+}
+
+.why-feature:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--brand-shadow);
+}
+
+.why-feature strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--brand-blue-deep);
+  font-size: 1.06rem;
+  line-height: 1.3;
+}
+
+.why-feature p {
+  margin: 0;
+  color: var(--brand-slate);
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.why-divider {
+  height: 1px;
+  width: min(100%, 720px);
+  margin-inline: auto;
+  background: linear-gradient(90deg, transparent, var(--brand-line) 20%, var(--brand-line) 80%, transparent);
+}
+
 .interest-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .interest-chip-grid span {
   display: flex;
   align-items: center;
+  flex: 0 1 calc((100% - 2 * 18px) / 3);
+  min-width: 240px;
   min-height: 88px;
   padding: 18px 20px;
   border-radius: 24px;
@@ -927,20 +980,21 @@ main {
   overflow: hidden;
   padding: 88px 0;
   background:
-    linear-gradient(135deg, rgba(33, 12, 31, 0.97), rgba(18, 20, 39, 0.98)),
-    linear-gradient(135deg, rgba(187, 23, 29, 0.12), rgba(52, 45, 151, 0.18));
-  color: var(--brand-white);
+    radial-gradient(circle at 16% 22%, rgba(187, 23, 29, 0.08), transparent 30%),
+    radial-gradient(circle at 86% 76%, rgba(52, 45, 151, 0.1), transparent 32%),
+    linear-gradient(180deg, var(--brand-surface) 0%, var(--brand-surface-strong) 100%);
+  color: var(--brand-ink);
 }
 
 .profile-info-section::before {
-  content: "DM";
+  content: "";
   position: absolute;
-  left: clamp(18px, 7vw, 120px);
-  bottom: -80px;
-  color: rgba(255, 255, 255, 0.035);
-  font-family: var(--font-heading);
-  font-size: clamp(9rem, 22vw, 20rem);
-  line-height: 1;
+  left: clamp(-20px, 3vw, 80px);
+  bottom: clamp(-40px, -2vw, -10px);
+  width: clamp(200px, 26vw, 380px);
+  height: clamp(200px, 26vw, 380px);
+  background: url("../img/all-images/about/logo.png") no-repeat center center / contain;
+  opacity: 0.06;
   pointer-events: none;
 }
 
@@ -954,16 +1008,16 @@ main {
 .profile-info-card {
   padding: clamp(24px, 3vw, 34px);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.22);
+  border: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--brand-shadow);
   backdrop-filter: blur(16px);
 }
 
 .profile-info-card .eyebrow {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #ee8ca7;
+  background: rgba(255, 255, 255, 0.84);
+  border-color: rgba(52, 45, 151, 0.12);
+  color: var(--brand-blue);
 }
 
 .profile-info-card h2 {
@@ -971,7 +1025,7 @@ main {
   font-family: var(--font-heading);
   font-size: clamp(1.65rem, 2.5vw, 2.35rem);
   line-height: 1.08;
-  color: var(--brand-white);
+  color: var(--brand-blue-deep);
 }
 
 .credential-list {
@@ -986,26 +1040,375 @@ main {
   gap: 8px;
   padding: 18px 20px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.055);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(52, 45, 151, 0.04);
+  border: 1px solid rgba(52, 45, 151, 0.1);
 }
 
 .credential-item strong {
-  color: #ee8ca7;
+  color: var(--brand-red);
   font-family: var(--font-heading);
   font-size: 1.2rem;
   line-height: 1.15;
 }
 
 .credential-item span {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--brand-slate);
   line-height: 1.65;
+}
+
+/* Qualifications shown as a professional vertical timeline */
+.qual-timeline {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  position: relative;
+}
+
+.qual-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brand-red), var(--brand-blue));
+  opacity: 0.35;
+}
+
+.qual-item {
+  position: relative;
+  padding: 0 0 clamp(20px, 2.4vw, 28px) 32px;
+}
+
+.qual-item:last-child {
+  padding-bottom: 0;
+}
+
+.qual-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--brand-white);
+  border: 3px solid var(--brand-blue);
+  box-shadow: 0 0 0 4px rgba(52, 45, 151, 0.08);
+}
+
+.qual-item:first-child::before {
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 4px rgba(187, 23, 29, 0.09);
+}
+
+.qual-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.qual-item h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.14rem;
+  line-height: 1.2;
+  color: var(--brand-red);
+}
+
+.qual-year {
+  flex-shrink: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--brand-blue);
+  background: rgba(52, 45, 151, 0.08);
+  border: 1px solid rgba(52, 45, 151, 0.12);
+  padding: 4px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.qual-item p {
+  margin: 6px 0 0;
+  color: var(--brand-slate);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Heading that stays on one line for the focus section */
+.focus-head h2 {
+  white-space: nowrap;
+  font-size: clamp(1.3rem, 3.1vw, 2.15rem);
+}
+
+@media (max-width: 900px) {
+  .focus-head h2 {
+    white-space: normal;
+  }
+}
+
+/* Compact clinical-focus grid (icon cards, no bulky imagery) */
+.focus-grid {
+  --focus-gap: clamp(14px, 1.6vw, 22px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--focus-gap);
+}
+
+.focus-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  flex: 0 1 calc((100% - 2 * var(--focus-gap)) / 3);
+  min-width: 280px;
+  padding: clamp(20px, 2vw, 26px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--brand-line);
+  background: rgba(255, 255, 255, 0.85);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--brand-shadow);
+  border-color: rgba(52, 45, 151, 0.18);
+}
+
+.focus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(187, 23, 29, 0.1), rgba(52, 45, 151, 0.16));
+  color: var(--brand-blue-deep);
+  font-size: 1.15rem;
+}
+
+.focus-card h3 {
+  margin: 0 0 5px;
+  font-size: 1.04rem;
+  line-height: 1.25;
+  color: var(--brand-blue-deep);
+}
+
+.focus-card p {
+  margin: 0;
+  color: var(--brand-slate);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .focus-card {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+}
+
+/* Detailed service cards (photo + icon + title + description) */
+.svc-grid {
+  --svc-gap: clamp(18px, 2vw, 26px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--svc-gap);
+}
+
+.svc-card {
+  flex: 0 1 calc((100% - 2 * var(--svc-gap)) / 3);
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--brand-line);
+  background: var(--brand-white);
+  box-shadow: var(--brand-shadow);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 34px 72px rgba(23, 24, 77, 0.18);
+}
+
+.svc-card-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(52, 45, 151, 0.08), rgba(187, 23, 29, 0.06));
+}
+
+.svc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.svc-card:hover .svc-card-media img {
+  transform: scale(1.06);
+}
+
+.svc-card-icon {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--brand-blue-deep);
+  font-size: 1.1rem;
+  box-shadow: 0 12px 24px rgba(23, 24, 77, 0.2);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.svc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: clamp(20px, 2vw, 26px);
+}
+
+.svc-card-body h3 {
+  margin: 0;
+  font-size: 1.14rem;
+  line-height: 1.25;
+  color: var(--brand-blue-deep);
+}
+
+.svc-card-body p {
+  margin: 0;
+  color: var(--brand-slate);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+@media (max-width: 620px) {
+  .svc-card {
+    flex-basis: 100%;
+    min-width: 0;
+  }
+}
+
+/* Combined doctor profile (identity + approach + portrait) */
+.doctor-profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  gap: clamp(30px, 4.5vw, 64px);
+  align-items: start;
+}
+
+.doctor-profile-media {
+  position: sticky;
+  top: 100px;
+}
+
+.doctor-profile-media .image-card {
+  aspect-ratio: 4 / 4.55;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 30px 70px rgba(23, 24, 77, 0.2);
+}
+
+.doctor-profile-media .image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-profile-media-vathsalyan .image-card img {
+  object-position: center 12%;
+  transform: none;
+}
+
+.doctor-profile-media-sivayogini .image-card img,
+.doctor-profile-media-sivayogini .doctor-hero-portrait-sivayogini {
+  object-position: 72% 16%;
+  transform: scale(1.2);
+  transform-origin: 72% 0%;
+}
+
+.doctor-profile-body {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.doctor-profile-body h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.06;
+  color: var(--brand-ink);
+}
+
+.doctor-profile-lead {
+  margin: 0;
+  max-width: 58ch;
+  color: var(--brand-slate);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.doctor-profile-approach {
+  display: grid;
+  gap: 16px;
+  margin-top: 10px;
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--brand-line);
+}
+
+.doctor-profile-approach h2 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.4vw, 2.05rem);
+  line-height: 1.15;
+  color: var(--brand-blue-deep);
+}
+
+.doctor-profile-approach p {
+  margin: 0;
+  color: var(--brand-slate);
+  line-height: 1.75;
+}
+
+.doctor-profile-approach .profile-points {
+  margin-top: 4px;
+}
+
+@media (max-width: 960px) {
+  .doctor-profile-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .doctor-profile-media {
+    position: static;
+  }
+
+  .doctor-profile-media .image-card {
+    aspect-ratio: 4 / 3.4;
+    max-height: 480px;
+  }
 }
 
 .achievement-list {
   display: grid;
   gap: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--brand-line);
 }
 
 .achievement-list article {
@@ -1013,7 +1416,7 @@ main {
   gap: 16px;
   align-items: flex-start;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--brand-line);
 }
 
 .achievement-svg {
@@ -1024,9 +1427,9 @@ main {
   height: 48px;
   border-radius: 50%;
   flex: 0 0 auto;
-  background: rgba(238, 140, 167, 0.12);
-  border: 1px solid rgba(238, 140, 167, 0.2);
-  color: #ee8ca7;
+  background: rgba(52, 45, 151, 0.08);
+  border: 1px solid rgba(52, 45, 151, 0.12);
+  color: var(--brand-blue);
 }
 
 .achievement-svg svg {
@@ -1041,14 +1444,14 @@ main {
 
 .achievement-list strong {
   display: block;
-  color: var(--brand-white);
+  color: var(--brand-blue-deep);
   font-size: 1.04rem;
   line-height: 1.35;
 }
 
 .achievement-list p {
   margin: 5px 0 0;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--brand-slate);
   font-size: 0.96rem;
   line-height: 1.65;
 }
@@ -1142,7 +1545,7 @@ main {
 
 .doctor-card img {
   width: 100%;
-  aspect-ratio: 4 / 4.65;
+  aspect-ratio: 4 / 3;
   border-radius: 22px;
   object-fit: cover;
   object-position: center center;
@@ -1150,11 +1553,11 @@ main {
 }
 
 .doctor-card-about-vathsalyan img {
-  object-position: center 22%;
+  object-position: center 45%;
 }
 
 .doctor-card-about-sivayogini img {
-  object-position: 72% 18%;
+  object-position: center 42%;
 }
 
 .doctor-meta {
@@ -1276,15 +1679,79 @@ main {
   color: var(--brand-blue-deep);
 }
 
+.media-callout {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(32px, 4vw, 56px);
+  align-items: start;
+}
+
 .media-callout .image-card {
-  min-height: 560px;
-  height: 100%;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 1 / 1.05;
+  max-height: 520px;
+  position: sticky;
+  top: 100px;
 }
 
 .media-callout .image-card img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
+}
+
+/* Airy, non-boxy numbered step list */
+.care-steps {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+}
+
+.care-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(16px, 2vw, 26px);
+  align-items: start;
+  padding: clamp(18px, 2.4vw, 26px) 0;
+  border-top: 1px solid var(--brand-line);
+  transition: transform 220ms ease;
+}
+
+.care-step:last-child {
+  border-bottom: 1px solid var(--brand-line);
+}
+
+.care-step:hover {
+  transform: translateX(4px);
+}
+
+.care-step-num {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  padding-top: 2px;
+  background: linear-gradient(135deg, var(--brand-red), var(--brand-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--brand-red);
+}
+
+.care-step h3 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  color: var(--brand-blue-deep);
+}
+
+.care-step p {
+  margin: 0;
+  color: var(--brand-slate);
+  font-size: 0.98rem;
+  line-height: 1.68;
 }
 
 .bullet-list,
@@ -1330,6 +1797,98 @@ main {
 .service-layout {
   display: grid;
   gap: 30px;
+}
+
+/* Centered header + tabs for the speciality services block */
+.service-layout > .section-head {
+  justify-items: center;
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* Nephrology / Oncology tab toggle */
+.service-tabs {
+  display: inline-flex;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(52, 45, 151, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--brand-shadow);
+}
+
+.service-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px clamp(20px, 3vw, 34px);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--brand-blue-deep);
+  font-weight: 700;
+  font-size: 0.98rem;
+  white-space: nowrap;
+  transition: background 220ms ease, color 220ms ease, box-shadow 220ms ease;
+}
+
+.service-tab i {
+  font-size: 0.95em;
+}
+
+.service-tab.is-active {
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-blue-deep));
+  color: var(--brand-white);
+  box-shadow: 0 12px 26px rgba(52, 45, 151, 0.26);
+}
+
+/* Tab panels */
+.service-panel {
+  display: none;
+}
+
+.service-panel.is-active {
+  display: grid;
+  gap: 18px;
+  animation: service-panel-in 320ms ease both;
+}
+
+/* Center the panel sub-heading (badge + doctor line). */
+.service-panel .rail-head {
+  justify-content: center;
+  text-align: center;
+}
+
+.service-panel .rail-head > div {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+
+/* Show every service as a wrapping grid (like the services page), not a swipe rail. */
+.page-home .service-panel .service-rail {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  overflow-x: visible;
+  scroll-snap-type: none;
+  padding-bottom: 0;
+}
+
+@keyframes service-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .service-rail-shell {
@@ -1615,6 +2174,58 @@ main {
 .faq-answer {
   padding: 0 24px 22px;
   color: var(--brand-slate);
+  line-height: 1.7;
+}
+
+/* General FAQ: single centered column */
+.faq-single {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* Clinical FAQ: two grouped columns (Nephrology / Oncology) */
+.faq-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+
+.faq-group {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.faq-group-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 4px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  line-height: 1.2;
+  color: var(--brand-blue-deep);
+}
+
+.faq-group-title i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(187, 23, 29, 0.1), rgba(52, 45, 151, 0.16));
+  color: var(--brand-blue-deep);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 860px) {
+  .faq-columns {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
 }
 
 .quick-faq-shell {
@@ -1655,10 +2266,11 @@ main {
 .cta-banner {
   position: relative;
   overflow: hidden;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(28px, 4vw, 56px);
-  padding: clamp(32px, 4vw, 56px);
+  grid-template-columns: 1fr;
+  justify-items: start;
+  align-items: start;
+  gap: 22px;
+  padding: clamp(30px, 3.4vw, 46px) clamp(30px, 4vw, 54px);
   border-radius: clamp(28px, 3vw, 40px);
   border: 1px solid rgba(255, 255, 255, 0.7);
   background:
@@ -1685,6 +2297,42 @@ main {
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+}
+
+/* Keep the copy + actions in a compact left column */
+.cta-banner > * {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.cta-banner .button-row {
+  flex-wrap: wrap;
+}
+
+/* Faint clinic-logo watermark filling the right side */
+.cta-banner::after {
+  content: "";
+  position: absolute;
+  inset: 50% clamp(-24px, 0vw, 30px) auto auto;
+  transform: translateY(-50%);
+  width: clamp(200px, 24vw, 320px);
+  height: clamp(200px, 24vw, 320px);
+  border-radius: 0;
+  background: url("../img/all-images/about/logo.png") no-repeat center center / contain;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .cta-banner::after {
+    display: none;
+  }
+
+  .cta-banner > * {
+    max-width: 100%;
+  }
 }
 
 .footer {
@@ -1953,8 +2601,14 @@ main {
     margin-left: 0;
   }
 
+  .media-callout {
+    grid-template-columns: 1fr;
+  }
+
   .media-callout .image-card {
-    min-height: 360px;
+    position: static;
+    aspect-ratio: 4 / 3;
+    max-height: 420px;
   }
 
   .hero-metrics,
@@ -1971,15 +2625,10 @@ main {
 }
 
 @media (max-width: 760px) {
-  .top-strip {
-    display: none;
-  }
-
   .section-shell {
     padding: 74px 0;
   }
 
-  .top-strip .container,
   .footer-bottom {
     flex-direction: column;
   }
@@ -2558,129 +3207,130 @@ main {
   z-index: 0;
 }
 
-.consultants-layout {
+/* Centered section header variant */
+.section-head-center {
+  justify-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(40px, 5vw, 60px);
+}
+
+.section-head-center p {
+  max-width: 52ch;
+}
+
+.section-head-center h2 {
+  white-space: nowrap;
+  font-size: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+@media (max-width: 620px) {
+  .section-head-center h2 {
+    white-space: normal;
+  }
+}
+
+.text-accent {
+  color: var(--brand-blue);
+}
+
+/* Circular team roster */
+.team-grid {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 56px);
+}
+
+.team-member {
   display: grid;
-  /* Give the portraits the dominant share of the row */
-  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
-  gap: clamp(28px, 4vw, 60px);
-  align-items: center;
+  justify-items: center;
+  text-align: center;
+  gap: 6px;
+  width: clamp(200px, 20vw, 250px);
+  color: inherit;
 }
 
-.consultants-feature .detail-copy {
-  align-content: center;
-}
-
-.consultant-gallery {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 2vw, 28px);
-}
-
-.consultant-portrait {
-  display: grid;
-  gap: 18px;
-  align-content: start;
-}
-
-/* The big image */
-.consultant-photo {
+.team-avatar {
   position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-xl);
-  aspect-ratio: 3 / 4;
-  box-shadow: 0 30px 70px rgba(23, 24, 77, 0.22);
-  background: linear-gradient(180deg, rgba(52, 45, 151, 0.08), rgba(187, 23, 29, 0.06));
-  transform: translateZ(0);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  display: block;
+  width: clamp(170px, 15vw, 210px);
+  height: clamp(170px, 15vw, 210px);
+  margin-bottom: 16px;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dashed rgba(52, 45, 151, 0.4);
+  background: var(--brand-white);
+  box-shadow: 0 22px 50px rgba(23, 24, 77, 0.14);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
-.consultant-portrait:hover .consultant-photo {
+.team-member:hover .team-avatar {
   transform: translateY(-6px);
-  box-shadow: 0 40px 84px rgba(23, 24, 77, 0.28);
+  border-color: var(--brand-blue);
+  box-shadow: 0 30px 66px rgba(23, 24, 77, 0.22);
 }
 
-.consultant-photo img {
+.team-avatar-frame {
+  display: block;
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
-  transition: transform 0.7s ease;
 }
 
-.consultant-portrait:hover .consultant-photo img {
+/* Per-doctor face framing — keep the full head visible with headroom */
+.team-avatar--vathsalyan img {
+  object-position: 50% 2%;
   transform: scale(1.05);
+  transform-origin: 50% 0%;
 }
 
-/* Readability gradient at the bottom of each portrait */
-.consultant-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg, transparent 45%, rgba(13, 15, 38, 0.72) 100%);
+.team-avatar--sivayogini img {
+  object-position: 74% 14%;
+  transform: scale(1.7);
+  transform-origin: 74% 0%;
 }
 
-/* Floating glassmorphism nameplate over the image */
-.consultant-plate {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  z-index: 1;
-  display: grid;
-  gap: 10px;
-  justify-items: start;
-  padding: 16px 18px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 18px 40px rgba(10, 12, 30, 0.32);
-}
-
-.consultant-plate .meta-chip {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--brand-blue-deep);
-}
-
-.consultant-plate h3 {
+.team-member h3 {
   margin: 0;
-  color: #fff;
   font-family: var(--font-heading);
-  font-size: clamp(1.45rem, 2vw, 1.95rem);
-  line-height: 1.04;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+  font-size: clamp(1.2rem, 1.6vw, 1.42rem);
+  line-height: 1.2;
+  color: var(--brand-ink);
 }
 
-.consultant-portrait > p {
-  margin: 0;
-  color: var(--brand-slate);
+.team-role {
+  color: var(--brand-blue);
+  font-weight: 700;
   font-size: 0.98rem;
-  line-height: 1.62;
+  line-height: 1.3;
 }
 
-@media (max-width: 1100px) {
-  .consultants-layout {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .consultant-photo {
-    aspect-ratio: 4 / 5;
-  }
+.team-degrees {
+  color: var(--brand-slate);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 560px) {
-  .consultant-gallery {
-    grid-template-columns: 1fr;
-    gap: 26px;
+  .team-grid {
+    gap: 36px;
   }
 
-  .consultant-photo {
-    aspect-ratio: 3 / 3.4;
+  .team-member {
+    width: min(260px, 82vw);
   }
 }
 

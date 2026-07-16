@@ -67,6 +67,49 @@
     });
   });
 
+  // Speciality service tabs: switch between Nephrology / Oncology panels.
+  document.querySelectorAll("[data-service-tab]").forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const key = tab.dataset.serviceTab;
+      const group = tab.closest(".service-layout") || document;
+
+      group.querySelectorAll("[data-service-tab]").forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle("is-active", active);
+        t.setAttribute("aria-selected", String(active));
+      });
+
+      group.querySelectorAll("[data-service-panel]").forEach((panel) => {
+        const active = panel.dataset.servicePanel === key;
+        panel.classList.toggle("is-active", active);
+        if (active) {
+          panel.removeAttribute("hidden");
+        } else {
+          panel.setAttribute("hidden", "");
+        }
+      });
+    });
+  });
+
+  // Deep links (e.g. services.html#oncology-track) open the matching tab and scroll to it.
+  const activateTabFromHash = (scroll) => {
+    const id = window.location.hash.replace("#", "");
+    if (!id) return;
+    const panel = document.getElementById(id);
+    if (!panel || !panel.dataset.servicePanel) return;
+    const tab = document.querySelector(
+      '[data-service-tab="' + panel.dataset.servicePanel + '"]'
+    );
+    if (tab) tab.click();
+    if (scroll) {
+      window.requestAnimationFrame(() => {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
+  activateTabFromHash(true);
+  window.addEventListener("hashchange", () => activateTabFromHash(true));
+
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && reveals.length) {
     const observer = new IntersectionObserver(
