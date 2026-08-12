@@ -3655,7 +3655,10 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: clamp(20px, 4vw, 30px);
+  padding: clamp(20px, 6vw, 40px);
+  overflow: hidden;
+  text-align: center;
   background:
     radial-gradient(1100px 620px at 50% 38%, rgba(52, 45, 151, 0.07), transparent 70%),
     radial-gradient(900px 520px at 50% 120%, rgba(187, 23, 29, 0.06), transparent 70%),
@@ -3673,8 +3676,9 @@ main {
 
 .preloader-stage {
   position: relative;
-  width: 138px;
-  height: 138px;
+  width: clamp(108px, 30vw, 138px);
+  height: clamp(108px, 30vw, 138px);
+  flex: none;
   display: grid;
   place-items: center;
 }
@@ -3700,8 +3704,8 @@ main {
 /* Soft halo that breathes behind the logo */
 .preloader-glow {
   position: absolute;
-  width: 96px;
-  height: 96px;
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(52, 45, 151, 0.18), rgba(52, 45, 151, 0) 70%);
   animation: preloaderHalo 1.8s ease-in-out infinite;
@@ -3709,8 +3713,8 @@ main {
 
 .preloader-logo {
   position: relative;
-  width: 96px;
-  height: 96px;
+  width: 70%;
+  height: 70%;
   border-radius: 50%;
   background: #fff;
   object-fit: contain;
@@ -3724,12 +3728,22 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  width: 100%;
+  max-width: 460px;
+  text-align: center;
 }
 
 .preloader-wordmark {
+  display: block;
+  max-width: 100%;
   font-family: var(--font-heading);
-  font-size: 1.02rem;
+  font-size: clamp(0.74rem, 3.3vw, 1.02rem);
+  line-height: 1.35;
   letter-spacing: 0.22em;
+  /* Letter-spacing trails the last glyph; pull it back so the line optically centres. */
+  margin-right: -0.22em;
+  text-align: center;
+  text-wrap: balance;
   text-transform: uppercase;
   color: var(--brand-blue-deep);
   background: linear-gradient(90deg, var(--brand-blue-deep) 0%, var(--brand-red) 50%, var(--brand-blue-deep) 100%);
@@ -3741,9 +3755,15 @@ main {
 }
 
 .preloader-tagline {
+  display: block;
+  max-width: 100%;
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: clamp(0.66rem, 2.8vw, 0.78rem);
+  line-height: 1.4;
   letter-spacing: 0.14em;
+  margin-right: -0.14em;
+  text-align: center;
+  text-wrap: balance;
   text-transform: uppercase;
   color: var(--brand-slate);
 }
