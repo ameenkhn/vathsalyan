@@ -1,0 +1,58 @@
+# Aadhiran Speciality Clinic - static hosting performance config (Apache).
+# Every block is wrapped in <IfModule> so a host missing a module degrades
+# silently instead of returning 500.
+
+# ---------------------------------------------------------------- MIME types
+<IfModule mod_mime.c>
+  AddType image/webp                  .webp
+  AddType image/avif                  .avif
+  AddType font/woff2                  .woff2
+  AddType text/css                    .css
+  AddType application/javascript      .js
+</IfModule>
+
+# ------------------------------------------------------------- Compression
+# Images and fonts are already compressed; re-compressing them wastes CPU.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/xml
+  AddOutputFilterByType BROTLI_COMPRESS application/javascript application/x-javascript
+  AddOutputFilterByType BROTLI_COMPRESS application/json application/xml
+  AddOutputFilterByType BROTLI_COMPRESS image/svg+xml
+</IfModule>
+
+# ------------------------------------------------------------------ Caching
+# HTML revalidates every time so content edits go live immediately.
+# CSS/JS are busted with ?v= in the markup; images and fonts are versioned by
+# filename, so both can be cached for a year.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                      "access plus 1 month"
+  ExpiresByType text/html             "access plus 0 seconds"
+  ExpiresByType text/css              "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp            "access plus 1 year"
+  ExpiresByType image/avif            "access plus 1 year"
+  ExpiresByType image/png             "access plus 1 year"
+  ExpiresByType image/jpeg            "access plus 1 year"
+  ExpiresByType font/woff2            "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|avif|png|jpe?g|woff2|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # Fonts are same-origin here, but keep CORS open in case assets move to a CDN.
+  <FilesMatch "\.woff2$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,36 @@
+/*! Font Awesome Pro 6.4.2 subset (33 icons) - Fonticons, Inc. - Commercial License */
+@font-face{font-family:"FA6Solid";font-style:normal;font-weight:900;font-display:block;src:url("fonts/fa-solid-subset.woff2") format("woff2")}
+.fa-solid{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:var(--fa-display,inline-block);font-family:"FA6Solid";font-style:normal;font-variant:normal;font-weight:900;line-height:1;text-rendering:auto}
+.fa-arrow-right::before{content:"\f061"}
+.fa-arrow-right-long::before{content:"\f178"}
+.fa-bars-staggered::before{content:"\f550"}
+.fa-bolt::before{content:"\f0e7"}
+.fa-building::before{content:"\f1ad"}
+.fa-chart-line::before{content:"\f201"}
+.fa-clipboard-check::before{content:"\f46c"}
+.fa-clock::before{content:"\f017"}
+.fa-comments::before{content:"\f086"}
+.fa-dna::before{content:"\f471"}
+.fa-droplet::before{content:"\f043"}
+.fa-envelope::before{content:"\f0e0"}
+.fa-flask-vial::before{content:"\e4f3"}
+.fa-gem::before{content:"\f3a5"}
+.fa-hand-holding-droplet::before{content:"\f4c1"}
+.fa-hand-holding-heart::before{content:"\f4be"}
+.fa-hand-holding-medical::before{content:"\e05c"}
+.fa-heart::before{content:"\f004"}
+.fa-heart-pulse::before{content:"\f21e"}
+.fa-house-medical::before{content:"\e3b2"}
+.fa-location-arrow::before{content:"\f124"}
+.fa-location-dot::before{content:"\f3c5"}
+.fa-microscope::before{content:"\f610"}
+.fa-person-pregnant::before{content:"\e31e"}
+.fa-phone::before{content:"\f095"}
+.fa-phone-volume::before{content:"\f2a0"}
+.fa-ribbon::before{content:"\f4d6"}
+.fa-shield-virus::before{content:"\e06c"}
+.fa-stethoscope::before{content:"\f0f1"}
+.fa-syringe::before{content:"\f48e"}
+.fa-user-doctor::before{content:"\f0f0"}
+.fa-users::before{content:"\f0c0"}
+.fa-video::before{content:"\f03d"}

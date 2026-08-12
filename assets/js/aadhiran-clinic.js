@@ -4,10 +4,11 @@
   const navToggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".site-nav");
 
-  // Preloader: keep the brand splash visible briefly, then fade out on load.
+  // Preloader: fade the brand splash out as soon as the DOM is parsed. It must not
+  // wait on `load` (that blocks on every image) — the markup is what we need on screen.
   const preloader = document.getElementById("sitePreloader");
   if (preloader) {
-    const MIN_VISIBLE_MS = 900;
+    const MIN_VISIBLE_MS = 250; // just long enough for the fade to read as intentional
     const startedAt = performance.now();
     let dismissed = false;
 
@@ -25,13 +26,13 @@
       }, wait);
     };
 
-    if (document.readyState === "complete") {
+    if (document.readyState !== "loading") {
       dismissPreloader();
     } else {
-      window.addEventListener("load", dismissPreloader);
+      document.addEventListener("DOMContentLoaded", dismissPreloader, { once: true });
     }
-    // Safety net in case the load event is delayed by a slow asset.
-    window.setTimeout(dismissPreloader, 5000);
+    // Safety net in case DOMContentLoaded is delayed by a slow asset.
+    window.setTimeout(dismissPreloader, 2000);
   }
 
   const syncHeader = () => {
